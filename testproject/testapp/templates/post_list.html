@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>게시판</title>
+        <style>
+            body{
+                font-family:Arial, sans-serif;
+                margin:0;
+                padding:0;
+                background-color:#f2f2f2;
+            }
+            .container{
+                max-width: 800px;
+                margin:20px auto;
+                background-color:#fff;
+                padding:20px;
+                border-radius:5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            .post{
+                margin-bottom:20px;
+                padding:20px;
+                background-color:#f9f9f9;
+                border-radius:5px;
+            }
+            .post h2{
+                margin-top: 0;
+                color: #333;
+            }
+            .post p {
+                margin-bottom:5px;
+                color:#666;
+            }
+            .post a{
+                color:#007bff;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>게시판</h1>
+            <div class="post">
+                {% for post in posts %}
+                  <h2>{{ post.title }}</h2>
+                  <p>{{ post.content }}</p>
+                  <p>작성일: {{ post.created_at }}</p>
+
+                
+                {% empty %}
+                  <p>작성된 게시글이 없습니다.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
